@@ -1,0 +1,109 @@
+names = c("Carrol", "Mike", "John")
+gender = c("Female", "Male", "Male")
+height = c(160, 175, 173)
+weight = c(49, 89, 77)
+age = c(35, 36, 41)
+df = data.frame(names, gender, height, weight, age)
+View(df)
+df[1]
+df[1,]
+df$gender
+df['gender']
+df$
+  
+# Data from a dataframe can also be accessed using condition.
+# Try the following codes:
+  
+df[df$names=='Mike', ]
+
+df[df$age>35, ]
+
+df[df$height>170 & df$weight>80, ]
+
+
+# Try the following codes:
+
+df[df$gender=='Male', ]
+
+df[df$height>170 & df$age<40, ]
+
+# Combining the original dataframe with the new row
+newdf = rbind(df, data.frame(names = "Lina",
+                             gender = "Female",
+                             height = 156,
+                             weight = 56,
+                             age = 23))
+
+# Displaying the updated dataframe
+print(newdf)
+
+# 1. Define vectors for the first dataframe
+gender <- c("Female", "Male", "Male", "Female", "Male")
+height <- c(160, 175, 173, 156, 169)
+weight <- c(49, 89, 77, 56, 81)
+age    <- c(35, 36, 41, 23, 28)
+names  <- c("Carrol", "Mike", "John", "Suuria", "Malik")
+
+# Create the first dataframe (df1)
+df1 <- data.frame(names, gender, height, weight, age)
+
+# 2. Define vectors for the second dataframe
+states      <- c("Selangor", "Perak", "Melaka")
+names_state <- c("Carrol", "John", "Malik")
+
+# Create the second dataframe (df2)
+df2 <- data.frame(names = names_state, states)
+
+# 3. Perform a Full Outer Join
+# 'all = TRUE' ensures all records from both datasets are kept
+dfMerge <- merge(df1, df2, by = "names", all = TRUE)
+
+# View the final merged dataset
+print(dfMerge)
+
+newDf2 = newdf[-2,]
+
+newDf3 = newdf
+
+newDf3 [1, "age"] <- 30
+
+View(newDf3)
+
+newDf5 =  newdf[0:4]
+newDf6 =  newdf[-2]
+
+getwd()
+
+
+install.packages("readr")
+
+data_cov = read.csv('C:/Users/Lenovo/Downloads/my_covid.csv')
+head(data_cov)
+summary(data_cov)
+View(data_cov)
+data_cov[data_cov$Country.Region == "Indonesia", ]
+
+# Effect of Missing Values
+
+# A missing value in the dataset is represented as NA
+# NAs have to be handled in the dataset because of the following:
+
+# creating a vector of integers having NAs.
+a <- c(1:5, rep(NA, 3), 6:10)
+a
+
+# performing sum on the vector
+sum(a)
+
+# selecting only integer values
+b <- a[!is.na(a)]
+b
+
+# performing sum on the new vector
+sum(b)
+
+df <- read.csv("C:/Users/Lenovo/Downloads/NAexample.csv")
+is.na(df)
+is.na(df['VarA'])
+mean(df$VarA)
+mean(na.omit(df$VarA))
